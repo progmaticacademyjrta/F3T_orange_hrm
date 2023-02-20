@@ -1,5 +1,6 @@
 package hu.progmatic.pages;
 
+import hu.progmatic.driverfactory.DriverBaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,6 +9,11 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 
 public class LoginPage {
+
+    public LoginPage(WebDriver driver, WebDriverWait wait) {
+        this.driver = driver;
+        this.wait = wait;
+    }
 
     WebDriver driver;
     WebDriverWait wait;

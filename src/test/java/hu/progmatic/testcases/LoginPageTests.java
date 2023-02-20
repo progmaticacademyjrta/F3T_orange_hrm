@@ -9,8 +9,8 @@ import org.testng.annotations.Test;
 public class LoginPageTests extends DriverBaseTest {
 
     @Test
-    public void loginWithValidUerValidPass() throws InterruptedException {
-        LoginPage loginPage = new LoginPage();
+    public void loginWithValidUserValidPass() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver,wait);
         loginPage.loadLoginPage();
         loginPage.LoginWithValidUserValidPass();
     }
