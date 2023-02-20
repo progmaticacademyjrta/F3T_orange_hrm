@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+group 'hu.progmatic.testframework'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.testng:testng:7.7.1'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.7.2'
+}
+
+test {
+    useTestNG()
+}
