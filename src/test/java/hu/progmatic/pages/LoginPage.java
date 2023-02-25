@@ -1,13 +1,10 @@
 package hu.progmatic.pages;
 
-import hu.progmatic.driverfactory.DriverBaseTest;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 
 public class LoginPage {
 
@@ -27,7 +24,7 @@ public class LoginPage {
     By errorMessageEmptyInputBy = By.className("oxd-input-field-error-message");
     By errorMessageInvalidInputBy = By.className("oxd-alert-content-text");
     By loginTitleBy = By.className("orangehrm-login-title");
-    By accontDisabledErrorBy = By.xpath("//p[text()='Account disabled']");
+    By accountDisabledErrorBy = By.xpath("//p[text()='Account disabled']");
 
 
 
@@ -81,7 +78,6 @@ public class LoginPage {
         PasswordInput.sendKeys(password);
         WebElement loginButton = driver.findElement(loginButtonBy);
         loginButton.click();
-        WebElement accountDisabledError = driver.findElement(accontDisabledErrorBy);
+        WebElement accountDisabledError = driver.findElement(accountDisabledErrorBy);
         accountDisabledError.isDisplayed();
-        Thread.sleep(2000);
 }}

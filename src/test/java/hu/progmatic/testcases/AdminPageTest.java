@@ -7,8 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
 public class AdminPageTest extends DriverBaseTest {
-    String userName = "Paladin3";
-    String password = "Pir@mis3";
+    String userName = "Paladin87"; // minimum 5 karakter
+    String password = "Pir@mis3"; // kisbetű, nagybetű , szám és speciális karakter kötelező
     LoginPage loginPage;
     AdminPage adminPage;
     @Test
@@ -21,7 +21,6 @@ public class AdminPageTest extends DriverBaseTest {
         adminPage.clickAddButton();
         adminPage.addNewUSerData(userName,password);
         adminPage.clickSaveUser();
-        Thread.sleep(3000);
         adminPage.logout();
         loginPage.LoginAddUser(userName,password);
     }
