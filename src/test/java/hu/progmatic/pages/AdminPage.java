@@ -24,6 +24,7 @@ public class AdminPage {
     By userBadgeBy = By.className("oxd-userdropdown-name");
     By logoutButtonBy = By.xpath("//a[text()='Logout']");
     By charachterNumberErrorButtonBy = By.xpath("//span[text()='Should be at least 5 characters']");
+
     public AdminPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
@@ -40,7 +41,6 @@ public class AdminPage {
     public void clickAddButton() {
         WebElement addButton = driver.findElement(addButtonBy);
         addButton.click();
-        WebElement saveButton = driver.findElement(saveButtonBy);
         System.out.println("navigated to Add User Page");
     }
 
@@ -58,7 +58,7 @@ public class AdminPage {
         statusInput.sendKeys(Keys.DOWN, Keys.DOWN, Keys.ENTER);
         WebElement userNameInput = driver.findElement(userNameInputBy);
         userNameInput.sendKeys(userName);
-        wait.until(ExpectedConditions.invisibilityOfElementWithText(charachterNumberErrorButtonBy, "Should be at least 5 characters"));
+        Thread.sleep(1000); // a hibaüzenet eltünését kell megvárni mivel az wait until invisible nem működött.
         List<WebElement> passwordInputFields = driver.findElements(passwordInputBy);
         for (WebElement passwordInput : passwordInputFields
         ) {
@@ -73,8 +73,8 @@ public class AdminPage {
         saveButton.click();
         System.out.println("Data Saved");
         wait.until(ExpectedConditions.elementToBeClickable(addButtonBy));
-    }
 
+    }
     public void logout() {
         WebElement userBadge = driver.findElement(userBadgeBy);
         userBadge.click();

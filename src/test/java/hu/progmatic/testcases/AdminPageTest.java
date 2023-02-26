@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
 public class AdminPageTest extends DriverBaseTest {
-    String userName = "Paladin87"; // minimum 5 karakter
+    String userName = "Paladin"; // minimum 5 karakter
     String password = "Pir@mis3"; // kisbetű, nagybetű , szám és speciális karakter kötelező
     LoginPage loginPage;
     AdminPage adminPage;
