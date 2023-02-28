@@ -52,7 +52,7 @@ public class LoginPage {
         System.out.println(alertMessage.getText());
     }
 
-    public void LoginWithValidUserValidPass() throws InterruptedException {
+    public void loginWithValidUserValidPass() throws InterruptedException {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         WebElement UsernameInput = driver.findElement(usernameInputBy);
         UsernameInput.sendKeys("Admin");

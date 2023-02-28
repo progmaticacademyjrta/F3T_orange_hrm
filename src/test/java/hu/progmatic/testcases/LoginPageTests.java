@@ -10,7 +10,7 @@ public class LoginPageTests extends DriverBaseTest {
     public void loginWithValidUserValidPass() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver,wait);
         loginPage.loadLoginPage();
-        loginPage.LoginWithValidUserValidPass();
+        loginPage.loginWithValidUserValidPass();
     }
     }
 
