@@ -15,13 +15,13 @@ public class AdminPageTest extends DriverBaseTest {
     public void createNewUserInAdminTest() throws InterruptedException {
         loginPage = new LoginPage(driver,wait);
         loginPage.loadLoginPage();
-        loginPage.LoginWithValidUserValidPass();
+        loginPage.loginWithValidUserValidPass();
         adminPage = new AdminPage(driver,wait);
         adminPage.goToAdminPage();
         adminPage.clickAddButton();
         adminPage.addNewUSerData(userName,password);
         adminPage.clickSaveUser();
         adminPage.logout();
-        loginPage.LoginAddUser(userName,password);
+        loginPage.loginAddUser(userName,password);
     }
 }

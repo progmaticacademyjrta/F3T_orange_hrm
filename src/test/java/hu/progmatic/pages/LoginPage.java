@@ -70,7 +70,7 @@ public class LoginPage {
         Assert.assertTrue(loginTitle.isDisplayed());
 
     }
-    public void LoginAddUser(String userName,String password) throws InterruptedException {
+    public void loginAddUser(String userName,String password) throws InterruptedException {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         WebElement UsernameInput = driver.findElement(usernameInputBy);
         UsernameInput.sendKeys(userName);
