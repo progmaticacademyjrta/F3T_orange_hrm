@@ -76,15 +76,19 @@ public class LoginPage  {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         WebElement UsernameInput = driver.findElement(usernameInputBy);
         UsernameInput.sendKeys("a");
+        System.out.println("a is written in username field");
         Reporter.log("a is written in username field");
         WebElement PasswordInput = driver.findElement(passwordInputBy);
         PasswordInput.sendKeys("admin123");
+        System.out.println("admin123 is written in password field");
         Reporter.log("admin123 is written in password field");
         WebElement loginButton = driver.findElement(loginButtonBy);
         loginButton.click();
+        System.out.println("Login button clicked");
         Reporter.log("Login button clicked");
         WebElement alertMessage = driver.findElement(errorMessageInvalidInputBy);
         System.out.println(alertMessage.getText());
+        System.out.println("Login denied , Invalid credentials message visible");
         Reporter.log("Login denied , Invalid credentials message visible");
 
     }
@@ -93,15 +97,19 @@ public class LoginPage  {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         WebElement UsernameInput = driver.findElement(usernameInputBy);
         UsernameInput.sendKeys("a");
+        System.out.println("a is written in username field");
         Reporter.log("a is written in username field");
         WebElement PasswordInput = driver.findElement(passwordInputBy);
         PasswordInput.sendKeys("a");
+        System.out.println("a is written in password field");
         Reporter.log("a is written in password field");
         WebElement loginButton = driver.findElement(loginButtonBy);
         loginButton.click();
+        System.out.println("Login button clicked");
         Reporter.log("Login button clicked");
         WebElement alertMessage = driver.findElement(errorMessageInvalidInputBy);
         System.out.println(alertMessage.getText());
+        System.out.println("Login denied , Invalid credentials message visible");
         Reporter.log("Login denied , Invalid credentials message visible");
     }
 
@@ -109,15 +117,19 @@ public class LoginPage  {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         WebElement UsernameInput = driver.findElement(usernameInputBy);
         UsernameInput.sendKeys("");
+        System.out.println("username field letf empty");
         Reporter.log("username field letf empty");
         WebElement PasswordInput = driver.findElement(passwordInputBy);
         PasswordInput.sendKeys("admin123");
+        System.out.println("admin123 is written in password field");
         Reporter.log("admin123 is written in password field");
         WebElement loginButton = driver.findElement(loginButtonBy);
         loginButton.click();
+        System.out.println("Login button clicked");
         Reporter.log("Login button clicked");
         WebElement errorMessage = driver.findElement(errorMessageEmptyInputBy);
         errorMessage.isDisplayed();
+        System.out.println("Login denied ,Required error message is displayed");
         Reporter.log("Login denied ,Required error message is displayed");
     }
 
@@ -125,15 +137,19 @@ public class LoginPage  {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         WebElement UsernameInput = driver.findElement(usernameInputBy);
         UsernameInput.sendKeys("");
-        Reporter.log("username field letf empty");
+        System.out.println("username field left empty");
+        Reporter.log("username field left empty");
         WebElement PasswordInput = driver.findElement(passwordInputBy);
         PasswordInput.sendKeys("a");
+        System.out.println("a is written in password field");
         Reporter.log("a is written in password field");
         WebElement loginButton = driver.findElement(loginButtonBy);
         loginButton.click();
+        System.out.println("Login button clicked");
         Reporter.log("Login button clicked");
         WebElement errorMessage = driver.findElement(errorMessageEmptyInputBy);
         errorMessage.isDisplayed();
+        System.out.println("Login denied ,Required error message is displayed");
         Reporter.log("Login denied ,Required error message is displayed");
     }
 
@@ -141,15 +157,19 @@ public class LoginPage  {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         WebElement UsernameInput = driver.findElement(usernameInputBy);
         UsernameInput.sendKeys("a");
+        System.out.println("a is written in username field");
         Reporter.log("a is written in username field");
         WebElement PasswordInput = driver.findElement(passwordInputBy);
         PasswordInput.sendKeys("");
-        Reporter.log("password field field letf empty");
+        System.out.println("\"password field field left empty\"");
+        Reporter.log("password field field left empty");
         WebElement loginButton = driver.findElement(loginButtonBy);
         loginButton.click();
+        System.out.println("Login button clicked");
         Reporter.log("Login button clicked");
         WebElement errorMessage = driver.findElement(errorMessageEmptyInputBy);
         errorMessage.isDisplayed();
+        System.out.println("Login denied ,Required error message is displayed");
         Reporter.log("Login denied ,Required error message is displayed");
     }
 
@@ -158,15 +178,19 @@ public class LoginPage  {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         WebElement UsernameInput = driver.findElement(usernameInputBy);
         UsernameInput.sendKeys("");
-        Reporter.log("username field letf empty");
+        System.out.println("username field left empty");
+        Reporter.log("username field left empty");
         WebElement PasswordInput = driver.findElement(passwordInputBy);
         PasswordInput.sendKeys("");
-        Reporter.log("password field field letf empty");
+        System.out.println("password field field left empty");
+        Reporter.log("password field field left empty");
         WebElement loginButton = driver.findElement(loginButtonBy);
         loginButton.click();
+        System.out.println("Login button clicked");
         Reporter.log("Login button clicked");
         WebElement errorMessage = driver.findElement(errorMessageEmptyInputBy);
         errorMessage.isDisplayed();
+        System.out.println("Login denied ,Required error message is displayed");
         Reporter.log("Login denied ,Required error message is displayed");
     }
     //TC01
@@ -174,6 +198,7 @@ public class LoginPage  {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         WebElement loginTitle = driver.findElement(loginTitleBy);
         Assert.assertTrue(loginTitle.isDisplayed());
+        System.out.println("Login Page loaded");
         Reporter.log("Login Page loaded");
 
     }
@@ -181,15 +206,19 @@ public class LoginPage  {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         WebElement UsernameInput = driver.findElement(usernameInputBy);
         UsernameInput.sendKeys(userName);
+        System.out.println(userName + "written in username field");
         Reporter.log(userName + "written in username field");
         WebElement PasswordInput = driver.findElement(passwordInputBy);
         PasswordInput.sendKeys(password);
+        System.out.println(password + "written in password field");
         Reporter.log(password + "written in password field");
         WebElement loginButton = driver.findElement(loginButtonBy);
         loginButton.click();
+        System.out.println("Login button clicked");
         Reporter.log("Login button clicked");
         WebElement accountDisabledError = driver.findElement(accountDisabledErrorBy);
         accountDisabledError.isDisplayed();
+        System.out.println("Login denied, Account Disabled message visible");
         Reporter.log("Login denied, Account Disabled message visible");
 
     }

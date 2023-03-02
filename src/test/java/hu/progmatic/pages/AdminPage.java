@@ -51,20 +51,24 @@ public class AdminPage {
         WebElement userRoleInput = driver.findElement(userRoleInputBy);
         userRoleInput.click();
         userRoleInput.sendKeys(Keys.DOWN, Keys.DOWN, Keys.ENTER);
+        System.out.println("ESS user role chosen");
         Reporter.log("ESS user role chosen");
         WebElement employeeNameInput = driver.findElement(employeeNameInputBy);
         employeeNameInput.click();
         employeeNameInput.sendKeys("Pa");
         Thread.sleep(2000); // a HTML kódban való megfoghatatlansága okán sajnos csak kivárni tudjuk a névlista megjelenését.
         employeeNameInput.sendKeys(Keys.DOWN, Keys.DOWN, Keys.ENTER);
+        System.out.println("Second Employee name chosen");
         Reporter.log("Second Employee name chosen");
         WebElement statusInput = driver.findElement(statusInputBy);
         statusInput.click();
         statusInput.sendKeys(Keys.DOWN, Keys.DOWN, Keys.ENTER);
+        System.out.println("Disabled status chosen");
         Reporter.log("Disabled status chosen");
         WebElement userNameInput = driver.findElement(userNameInputBy);
         userNameInput.sendKeys(userName);
-        Reporter.log(userName+"written in username field");
+        System.out.println(userName + "written in username field");
+        Reporter.log(userName + "written in username field");
         Thread.sleep(1000); // a hibaüzenet eltünését kell megvárni mivel az wait until invisible nem működött.
         List<WebElement> passwordInputFields = driver.findElements(passwordInputBy);
         for (WebElement passwordInput : passwordInputFields
@@ -88,6 +92,7 @@ public class AdminPage {
     public void logout() {
         WebElement userBadge = driver.findElement(userBadgeBy);
         userBadge.click();
+        System.out.println("UserBadge clicked");
         Reporter.log("UserBadge clicked");
         WebElement logoutButton = driver.findElement(logoutButtonBy);
         logoutButton.click();

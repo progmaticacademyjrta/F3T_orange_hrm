@@ -34,6 +34,7 @@ public class PimPage {
     public void clickOnPIMButton() {
         WebElement pimButton = driver.findElement(pimButtonBy);
         pimButton.click();
+        System.out.println("Pim button clicked");
         Reporter.log("Pim button clicked");
     }
 
@@ -45,22 +46,27 @@ public class PimPage {
 
     public void addNewEmployeeData(String ownEmployeeId) throws InterruptedException {
         WebElement firstName = driver.findElement(firstNameBy);
-        firstName.sendKeys("Gerebenes12");
-        Reporter.log("Gerebenes12 is written in Firstname field");
+        firstName.sendKeys("Piramis");
+        System.out.println("Piramis is written in Firstname field");
+        Reporter.log("Piramis is written in Firstname field");
         WebElement lastName = driver.findElement(lastNameBy);
-        lastName.sendKeys("Karcsi12");
-        Reporter.log("Karcsi12 is written in Lastname field");
+        lastName.sendKeys("Ferenc");
+        System.out.println("Ferenc is written in Lastname field");
+        Reporter.log("Ferenc is written in Lastname field");
         WebElement employeeId = driver.findElement(employeeIdBy);
         employeeId.click();
         employeeId.sendKeys(Keys.BACK_SPACE,Keys.BACK_SPACE,Keys.BACK_SPACE,Keys.BACK_SPACE);
+        System.out.println("Employee Id input field cleared");
         Reporter.log("Employee Id input field cleared");
         employeeId.sendKeys(ownEmployeeId);
+        System.out.println(ownEmployeeId+"is written inEmployee id field");
         Reporter.log(ownEmployeeId+"is written inEmployee id field");
     }
 
     public void clickOnSaveButton(){
         WebElement saveButton = driver.findElement(saveButtonBy);
         saveButton.click();
+        System.out.println("Save button clicked");
         Reporter.log("Save button clicked");
 
     }
@@ -68,24 +74,28 @@ public class PimPage {
     public void clickOnEmployeeList(){
         WebElement employeeListButton = driver.findElement(employeeListButtonBy);
         employeeListButton.click();
+        System.out.println("EmployeeList button clicked");
         Reporter.log("EmployeeList button clicked");
     }
 
     public void addEmployeeId(String ownEmployeeId){
         WebElement searchEmployeeId = driver.findElement(searchEmployeeIdBy);
         searchEmployeeId.sendKeys(ownEmployeeId);
+        System.out.println(ownEmployeeId+"is written in EmployeeList input field");
         Reporter.log(ownEmployeeId+"is written in EmployeeList input field");
     }
 
     public void clickOnSearchButton(){
         WebElement searchButton = driver.findElement(searchButtonBy);
         searchButton.click();
+        System.out.println("Search button clicked");
         Reporter.log("Search button clicked");
     }
 
     public void checkExistenceOfNewEmployeeInSystem(String ownEmployeeId){
         WebElement foundEmployeeId = driver.findElement(foundEmployeeIdBy);
         Assert.assertEquals(foundEmployeeId.getText(), ownEmployeeId);
+        System.out.println("The new employee is found in the system");
         Reporter.log("The new employee is found in the system");
     }
 }

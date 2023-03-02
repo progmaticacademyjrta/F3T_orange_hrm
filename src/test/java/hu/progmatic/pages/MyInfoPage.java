@@ -40,9 +40,11 @@ public class MyInfoPage{
     public void navigateToMyInfoPage(){
         WebElement myInfoButton = driver.findElement(myInfoButtonBy);
         myInfoButton.click();
+        System.out.println("My Info Page button clicked");
         Reporter.log("My Info Page button clicked");
         WebElement personalDetailsTitle = driver.findElement(personalDetailsTitleBy);
         personalDetailsTitle.isDisplayed();
+        System.out.println("Navigated to My Info Page");
         Reporter.log("Navigated to My Info Page");
     }
 
@@ -51,9 +53,11 @@ public class MyInfoPage{
         Thread.sleep(1000);
         firstNameField.sendKeys(Keys.CONTROL,"a");
         firstNameField.sendKeys(Keys.DELETE);
+        System.out.println("Firstname field cleared");
         Reporter.log("Firstname field cleared");
         WebElement requiredMessage = driver.findElement(requiredMessageBy);
         requiredMessage.isDisplayed();
+        System.out.println("Required message visible");
         Reporter.log("Required message visible");
     }
 
@@ -62,9 +66,11 @@ public class MyInfoPage{
         Thread.sleep(1000);
         lastNameField.sendKeys(Keys.CONTROL,"a");
         lastNameField.sendKeys(Keys.DELETE);
+        System.out.println("Lastname field cleared");
         Reporter.log("Lastname field cleared");
         WebElement requiredMessage = driver.findElement(requiredMessageBy);
         requiredMessage.isDisplayed();
+        System.out.println("Required message visible");
         Reporter.log("Required message visible");
     }
 
@@ -73,23 +79,30 @@ public class MyInfoPage{
         Thread.sleep(1000);
         firstNameField.sendKeys(Keys.CONTROL,"a");
         firstNameField.sendKeys(Keys.DELETE);
+        System.out.println("Firstname field cleared");
         Reporter.log("Firstname field cleared");
         firstNameField.sendKeys("John");
+        System.out.println("John is written in Firstname field");
         Reporter.log("John is written in Firstname field");
         WebElement lastNameField = driver.findElement(lastNameFieldBy);
         lastNameField.sendKeys(Keys.CONTROL,"a");
         lastNameField.sendKeys(Keys.DELETE);
+        System.out.println("Lastname field cleared");
         Reporter.log("Lastname field cleared");
         lastNameField.sendKeys("Martin");
+        System.out.println("Martin is written in Lastname field");
         Reporter.log("Martin is written in Lastname field");
         WebElement saveButton = driver.findElement(saveButtonBy);
         saveButton.click();
+        System.out.println("Save button clicked");
         Reporter.log("Save button clicked");
         WebElement myInfoButton = driver.findElement(myInfoButtonBy);
         myInfoButton.click();
+        System.out.println("My Info button clicked");
         Reporter.log("My Info button clicked");
         WebElement name = driver.findElement(nameBy);
         name.isDisplayed();
+        System.out.println("John Martin has been saved");
         Reporter.log("John Martin has been saved");
 
     }
@@ -97,9 +110,11 @@ public class MyInfoPage{
     public void navigateFromMyInfoToChangeProfilePicturePage(){
         WebElement employeePhoto = driver.findElement(employeePhotoBy);
         employeePhoto.click();
+        System.out.println("Employee photo clicked");
         Reporter.log("Employee photo clicked");
         WebElement changePhotoTitle = driver.findElement(changePhotoTitleBy);
         changePhotoTitle.isDisplayed();
+        System.out.println("Navigated to change photo page");
         Reporter.log("Navigated to change photo page");
     }
 
@@ -107,17 +122,21 @@ public class MyInfoPage{
         WebElement licenseExpiryDateInputField = driver.findElement(licenseExpiryDateInputFieldBy);
         Thread.sleep(1000);
         licenseExpiryDateInputField.sendKeys(Keys.NUMPAD1, Keys.TAB);
+        System.out.println("1 is written in License Expiry Date Field");
         Reporter.log("1 is written in License Expiry Date Field");
         WebElement errorMessage = driver.findElement(errorMessageBy);
         errorMessage.isDisplayed();
+        System.out.println("Should be a valid date in yyyy-mm-dd format message is seen");
         Reporter.log("Should be a valid date in yyyy-mm-dd format message is seen");
     }
 
     public void chosenNationalityCheck(){
         WebElement nationalityDropDown = driver.findElement(nationalityDropDownBy);
         nationalityDropDown.sendKeys(Keys.DOWN,Keys.DOWN,Keys.ENTER);
+        System.out.println("Albanian Nationality is chosen");
         Reporter.log("Albanian Nationality is chosen");
         Assert.assertEquals(nationalityDropDown.getText(),"Albanian");
+        System.out.println("Albanian Nationality is visible after choosing it");
         Reporter.log("Albanian Nationality is visible after choosing it");
     }
 }

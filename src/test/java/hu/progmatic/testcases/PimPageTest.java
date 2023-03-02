@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class PimPageTest extends DriverBaseTest {
     String employeeId = "1234567812";
-    @Test
+    @Test (description = "TC22")
     public void addingNewUserInPimMenu() throws InterruptedException {
         LoginPage loginpage = new LoginPage(driver, wait);
         PimPage pimpage = new PimPage(driver, wait);

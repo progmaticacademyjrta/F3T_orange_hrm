@@ -10,7 +10,7 @@ public class RecruitmentPageTests extends DriverBaseTest {
     LoginPage loginPage;
     RecruitmentPage recruitmentPage;
 
-    @Test
+    @Test (description = "TC23")
     public void createNewCandidateTest() throws InterruptedException {
         loginPage = new LoginPage(driver,wait);
         loginPage.loginWithValidUserValidPass();

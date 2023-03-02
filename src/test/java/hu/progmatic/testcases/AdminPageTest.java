@@ -11,7 +11,7 @@ public class AdminPageTest extends DriverBaseTest {
     String password = "Pir@mis3"; // kisbetű, nagybetű , szám és speciális karakter kötelező
     LoginPage loginPage;
     AdminPage adminPage;
-    @Test
+    @Test (description = "TC21")
     public void createNewUserInAdminTest() throws InterruptedException {
         loginPage = new LoginPage(driver,wait);
         loginPage.loadLoginPage();
