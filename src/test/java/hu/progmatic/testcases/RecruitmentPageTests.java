@@ -13,7 +13,7 @@ public class RecruitmentPageTests extends DriverBaseTest {
     @Test
     public void createNewCandidateTest() throws InterruptedException {
         loginPage = new LoginPage(driver,wait);
-        loginPage.LoginWithValidUserValidPass();
+        loginPage.loginWithValidUserValidPass();
         recruitmentPage = new RecruitmentPage(driver, wait);
         recruitmentPage.recruitmentButtonClick();
         recruitmentPage.addButtonClick();

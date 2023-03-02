@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="LoginPageTests">
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/Kastiel/Desktop/F3T_orange_hrm/src/test/java/hu/progmatic/testcases/LoginPageTests.java">
+        <classes>
+            <class name="hu.progmatic.testcases.LoginPageTests">
+                <methods>
+                    <include name="openOrangeHrmPageTest"/>
+                    <include name="loginWithValidUserValidPassTest"/>
+                    <include name="loginWithValidUserInvalidPassTest"/>
+                    <include name="loginWithInvalidUserValidPassTest"/>
+                    <include name="loginWithInvalidUserInvalidPassTest"/>
+                    <include name="loginWithEmptyUserValidPassTest"/>
+                    <include name="loginWithValidUserEmptyPassTest"/>
+                    <include name="loginWithEmptyUserInvalidPassTest"/>
+                    <include name="loginWithInvalidUserEmptyPassTest"/>
+                    <include name="loginWithEmptyUserEmptyPassTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

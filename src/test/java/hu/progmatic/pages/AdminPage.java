@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
 
 import java.util.List;
 
@@ -36,51 +37,63 @@ public class AdminPage {
         WebElement addButton = driver.findElement(addButtonBy);
         addButton.isDisplayed();
         System.out.println("navigated to Admin Page");
+        Reporter.log("navigated to Admin Page");
     }
 
     public void clickAddButton() {
         WebElement addButton = driver.findElement(addButtonBy);
         addButton.click();
         System.out.println("navigated to Add User Page");
+        Reporter.log("navigated to Add User Page");
     }
 
     public void addNewUSerData(String userName, String password) throws InterruptedException {
         WebElement userRoleInput = driver.findElement(userRoleInputBy);
         userRoleInput.click();
         userRoleInput.sendKeys(Keys.DOWN, Keys.DOWN, Keys.ENTER);
+        Reporter.log("ESS user role chosen");
         WebElement employeeNameInput = driver.findElement(employeeNameInputBy);
         employeeNameInput.click();
         employeeNameInput.sendKeys("Pa");
         Thread.sleep(2000); // a HTML kódban való megfoghatatlansága okán sajnos csak kivárni tudjuk a névlista megjelenését.
         employeeNameInput.sendKeys(Keys.DOWN, Keys.DOWN, Keys.ENTER);
+        Reporter.log("Second Employee name chosen");
         WebElement statusInput = driver.findElement(statusInputBy);
         statusInput.click();
         statusInput.sendKeys(Keys.DOWN, Keys.DOWN, Keys.ENTER);
+        Reporter.log("Disabled status chosen");
         WebElement userNameInput = driver.findElement(userNameInputBy);
         userNameInput.sendKeys(userName);
+        Reporter.log(userName+"written in username field");
         Thread.sleep(1000); // a hibaüzenet eltünését kell megvárni mivel az wait until invisible nem működött.
         List<WebElement> passwordInputFields = driver.findElements(passwordInputBy);
         for (WebElement passwordInput : passwordInputFields
         ) {
             passwordInput.sendKeys(password);
-            System.out.println("Data Filled");
-        }
 
+        }
+        Reporter.log(password+"written in both password field");
+        Reporter.log("Data Filled");
+        System.out.println("Data Filled");
     }
 
     public void clickSaveUser() {
         WebElement saveButton = driver.findElement(saveButtonBy);
         saveButton.click();
         System.out.println("Data Saved");
+        Reporter.log("Data Saved");
         wait.until(ExpectedConditions.elementToBeClickable(addButtonBy));
 
     }
     public void logout() {
         WebElement userBadge = driver.findElement(userBadgeBy);
         userBadge.click();
+        Reporter.log("UserBadge clicked");
         WebElement logoutButton = driver.findElement(logoutButtonBy);
         logoutButton.click();
+        Reporter.log("logout button clicked");
         System.out.println("loged out");
+
 
     }
 }

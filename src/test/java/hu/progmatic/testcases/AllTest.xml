@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="AllTests">
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/Kastiel/Desktop/F3T_orange_hrm/src/test/java/hu/progmatic/testcases">
+        <classes>
+            <class name="hu.progmatic.testcases.AdminPageTest">
+                <methods>
+                    <include name="createNewUserInAdminTest"/>
+                </methods>
+            </class>
+            <class name="hu.progmatic.testcases.LoginPageTests">
+                <methods>
+                    <include name="openOrangeHrmPageTest"/>
+                    <include name="loginWithValidUserValidPassTest"/>
+                    <include name="loginWithValidUserInvalidPassTest"/>
+                    <include name="loginWithInvalidUserValidPassTest"/>
+                    <include name="loginWithInvalidUserInvalidPassTest"/>
+                    <include name="loginWithEmptyUserValidPassTest"/>
+                    <include name="loginWithValidUserEmptyPassTest"/>
+                    <include name="loginWithEmptyUserInvalidPassTest"/>
+                    <include name="loginWithInvalidUserEmptyPassTest"/>
+                    <include name="loginWithEmptyUserEmptyPassTest"/>
+                </methods>
+            </class>
+            <class name="hu.progmatic.testcases.MyInfoPageTests">
+                <methods>
+                    <include name="navigateToMyInfoTest"/>
+                    <include name="checkRequirementOfFirstNameTest"/>
+                    <include name="checkRequirementOfLastNameTest"/>
+                    <include name="checkIfFullNameHasBeenSavedTest"/>
+                    <include name="navigateFromMyInfoToChangeProfilePicturePageTest"/>
+                    <include name="licenseExpiryDateCheckTest"/>
+                    <include name="chosenNationalityCheckTest"/>
+                </methods>
+            </class>
+            <class name="hu.progmatic.testcases.PimPageTest">
+                <methods>
+                    <include name="addingNewUserInPimMenu"/>
+                </methods>
+            </class>
+            <class name="hu.progmatic.testcases.RecruitmentPageTests">
+                <methods>
+                    <include name="createNewCandidateTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

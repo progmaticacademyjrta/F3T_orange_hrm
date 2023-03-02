@@ -11,6 +11,9 @@ import java.time.Duration;
 
 public class DriverBaseTest {
     protected WebDriver driver;
+
+
+
     protected WebDriverWait wait;
     protected Actions actions;
 
@@ -37,5 +40,9 @@ public class DriverBaseTest {
     public void driverCleanUp() {
         driver.quit();
         System.out.println("Test case execution finished");
+    }
+
+    public WebDriver getDriver() {
+        return driver;
     }
 }

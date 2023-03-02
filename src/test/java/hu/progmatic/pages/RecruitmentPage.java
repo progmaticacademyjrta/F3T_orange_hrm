@@ -4,9 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
 
 public class RecruitmentPage {
 
@@ -40,6 +39,7 @@ public class RecruitmentPage {
         WebElement candidates = driver.findElement(candidatesBy);
         candidates.isDisplayed();
         System.out.println("Navigated to Recruitment page");
+        Reporter.log("Navigated to Recruitment page");
     }
 
     public void addButtonClick() throws InterruptedException {
@@ -48,47 +48,63 @@ public class RecruitmentPage {
         WebElement firstNameInput = driver.findElement(firstNameInputBy);
         firstNameInput.isDisplayed();
         System.out.println("Navigated to add Candidate page");
+        Reporter.log("Navigated to add Candidate page");
     }
 
     public void addNewCandidateData() throws InterruptedException {
         WebElement firstNameInput = driver.findElement(firstNameInputBy);
         firstNameInput.sendKeys("Piramis");
+        Reporter.log("Piramis is written in Firstname field");
         WebElement lastNameInput = driver.findElement(lastNameInputBy);
         lastNameInput.sendKeys("Kata");
+        Reporter.log("Kata is written in Lastname field");
         WebElement vacancyDropDown = driver.findElement(vacancyDropDownBy);
         vacancyDropDown.click();
         vacancyDropDown.sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER);
+        Reporter.log("Junior Account Assistant is chosen from the Vacancy list");
         WebElement emailInput = driver.findElement(emailInputBy);
         emailInput.sendKeys("piramiskata@mail.hu");
+        Reporter.log("piramiskata@mail.hu is written in Email field");
         WebElement keywordsInput = driver.findElement(keywordsInputBy);
         keywordsInput.sendKeys("piramiskata");
+        Reporter.log("piramiskata is written in Keywords field");
         WebElement dateOfApplicationInput = driver.findElement(dateOfApplicationInputBy);
         dateOfApplicationInput.sendKeys("");
+        Reporter.log("Today's date is given in Date of Application field");
         WebElement consentToKeepDate = driver.findElement(consentToKeepDateBy);
         consentToKeepDate.click();
+        Reporter.log("Consent to keep data is accepted");
         System.out.println("Candidate data filled");
+        Reporter.log("Candidate data filled");
     }
 
     public void saveButtonClick() throws InterruptedException {
         WebElement saveButton = driver.findElement(saveButtonBy);
         saveButton.click();
         System.out.println("Data saved.");
+        Reporter.log("Data saved");
     }
 
     public void checkIfNewlyAddedCandidateExists() throws InterruptedException {
         WebElement candidates = driver.findElement(candidatesBy);
         candidates.click();
+        Reporter.log("Candidates Button clicked");
         WebElement keywordsInput = driver.findElement(keywordsInputBy);
         keywordsInput.sendKeys("piramiskata");
+        Reporter.log("piramiskata is written in Keywords field");
         WebElement dateOfApplicationFrom = driver.findElement(dateOfApplicationFromBy);
         dateOfApplicationFrom.sendKeys("1998-02-21");
+        Reporter.log("1998-02-21 is written in Date Of Application From field");
         WebElement dateOfApplicationTo = driver.findElement(dateOfApplicationToBy);
         dateOfApplicationTo.sendKeys("2024-02-24");
+        Reporter.log("2024-02-24 is written in Date Of Application To field");
         WebElement searchButton = driver.findElement(searchButtonBy);
         searchButton.click();
+        Reporter.log("Search Button clicked");
         WebElement recordFound = driver.findElement(recordFoundBy);
         recordFound.isDisplayed();
         System.out.println("Successfully found candidate.");
+        Reporter.log("Successfully found candidate");
 
     }
 
