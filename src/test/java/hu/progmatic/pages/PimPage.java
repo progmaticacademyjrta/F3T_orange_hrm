@@ -24,7 +24,7 @@ public class PimPage {
 
     By searchButtonBy = By.xpath("//button[text()=' Search ']");
 
-    By foundEmployeeIdBy = By.xpath("//div[text()='1234567812']");
+    By foundEmployeeIdBy = By.xpath("//div[text()='1526']");
     public PimPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
