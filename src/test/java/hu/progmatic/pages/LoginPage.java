@@ -1,11 +1,11 @@
 package hu.progmatic.pages;
 
+import hu.progmatic.report.Reporting;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.Reporter;
 
 public class LoginPage  {
 
@@ -16,6 +16,8 @@ public class LoginPage  {
 
     WebDriver driver;
     WebDriverWait wait;
+
+    Reporting reporting;
 
     By usernameInputBy = By.cssSelector("input[name='username']");
     By passwordInputBy = By.cssSelector("input[name='password']");
@@ -30,196 +32,171 @@ public class LoginPage  {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         WebElement UsernameInput = driver.findElement(usernameInputBy);
         UsernameInput.sendKeys("Admin");
-        Reporter.log("Admin is written in password field");
-        Reporter.log("password field field letf empty");
+        reporting = new Reporting();
+        reporting.sendDateAndReportMessage("Admin is written in username field");
+        reporting.sendDateAndReportMessage("password field left empty");
         WebElement loginButton = driver.findElement(loginButtonBy);
         loginButton.click();
-        Reporter.log("Login button clicked");
+        reporting.sendDateAndReportMessage("Login button clicked");
         WebElement alertMessage = driver.findElement(errorMessageEmptyInputBy);
         System.out.println(alertMessage.getText());
-        Reporter.log("Login denied ,Required error message is displayed");
+        reporting.sendDateAndReportMessage("Login denied "+alertMessage.getText()+"is displayed");
     }
 
     public void loginWithValidUserInvalidPass() throws InterruptedException {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         WebElement UsernameInput = driver.findElement(usernameInputBy);
+        reporting = new Reporting();
         UsernameInput.sendKeys("Admin");
-        Reporter.log("Admin is written in password field");
+        reporting.sendDateAndReportMessage("Admin is written in username field");
         WebElement PasswordInput = driver.findElement(passwordInputBy);
         PasswordInput.sendKeys("a");
-        Reporter.log("admin123 is written in password field");
+        reporting.sendDateAndReportMessage("'a' is written in password field");
         WebElement loginButton = driver.findElement(loginButtonBy);
         loginButton.click();
-        Reporter.log("Login button clicked");
+        reporting.sendDateAndReportMessage("Login button clicked");
         WebElement alertMessage = driver.findElement(errorMessageInvalidInputBy);
-        System.out.println(alertMessage.getText());
-        Reporter.log("Login denied , Invalid credentials message visible");
+        reporting.sendDateAndReportMessage("Login denied "+alertMessage.getText()+"is displayed");
     }
 
     public void loginWithValidUserValidPass() throws InterruptedException {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         WebElement UsernameInput = driver.findElement(usernameInputBy);
+        reporting = new Reporting();
         UsernameInput.sendKeys("Admin");
-        Reporter.log("Admin is written in password field");
+        reporting.sendDateAndReportMessage("Admin is written in username field");
         WebElement PasswordInput = driver.findElement(passwordInputBy);
         PasswordInput.sendKeys("admin123");
-        Reporter.log("admin123 is written in password field");
+        reporting.sendDateAndReportMessage("admin123 is written in password field");
         WebElement loginButton = driver.findElement(loginButtonBy);
         loginButton.click();
-        Reporter.log("Login button clicked");
+        reporting.sendDateAndReportMessage("Login button clicked");
         WebElement adminButton = driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/aside/nav/div[2]/ul/li[1]/a/span"));
         adminButton.isDisplayed();
-        Reporter.log("Login granted , Admin button visible");
+        reporting.sendDateAndReportMessage("Login granted , Admin button visible");
     }
 
     public void loginWithInvalidUserValidPass() throws InterruptedException {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         WebElement UsernameInput = driver.findElement(usernameInputBy);
         UsernameInput.sendKeys("a");
-        System.out.println("a is written in username field");
-        Reporter.log("a is written in username field");
+        reporting = new Reporting();
+        reporting.sendDateAndReportMessage("'a' is written in username field");
         WebElement PasswordInput = driver.findElement(passwordInputBy);
         PasswordInput.sendKeys("admin123");
-        System.out.println("admin123 is written in password field");
-        Reporter.log("admin123 is written in password field");
+        reporting.sendDateAndReportMessage("admin123 is written in password field");
         WebElement loginButton = driver.findElement(loginButtonBy);
         loginButton.click();
-        System.out.println("Login button clicked");
-        Reporter.log("Login button clicked");
+        reporting.sendDateAndReportMessage("Login button clicked");
         WebElement alertMessage = driver.findElement(errorMessageInvalidInputBy);
-        System.out.println(alertMessage.getText());
-        System.out.println("Login denied , Invalid credentials message visible");
-        Reporter.log("Login denied , Invalid credentials message visible");
-
+        reporting.sendDateAndReportMessage("Login denied "+alertMessage.getText()+"is displayed");
     }
 
     public void loginWithInvalidUserInvalidPass() throws InterruptedException {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         WebElement UsernameInput = driver.findElement(usernameInputBy);
         UsernameInput.sendKeys("a");
-        System.out.println("a is written in username field");
-        Reporter.log("a is written in username field");
+        reporting = new Reporting();
+        reporting.sendDateAndReportMessage("'a' is written in username field");
         WebElement PasswordInput = driver.findElement(passwordInputBy);
         PasswordInput.sendKeys("a");
-        System.out.println("a is written in password field");
-        Reporter.log("a is written in password field");
+        reporting.sendDateAndReportMessage("'a' is written in password field");
         WebElement loginButton = driver.findElement(loginButtonBy);
         loginButton.click();
-        System.out.println("Login button clicked");
-        Reporter.log("Login button clicked");
+        reporting.sendDateAndReportMessage("Login button clicked");
         WebElement alertMessage = driver.findElement(errorMessageInvalidInputBy);
-        System.out.println(alertMessage.getText());
-        System.out.println("Login denied , Invalid credentials message visible");
-        Reporter.log("Login denied , Invalid credentials message visible");
+        reporting.sendDateAndReportMessage("Login denied "+alertMessage.getText()+"is displayed");
     }
 
     public void loginWithEmptyUserValidPass() throws InterruptedException {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         WebElement UsernameInput = driver.findElement(usernameInputBy);
-        UsernameInput.sendKeys("");
-        System.out.println("username field letf empty");
-        Reporter.log("username field letf empty");
+        reporting = new Reporting();
+        reporting.sendDateAndReportMessage("username field left empty");
         WebElement PasswordInput = driver.findElement(passwordInputBy);
         PasswordInput.sendKeys("admin123");
-        System.out.println("admin123 is written in password field");
-        Reporter.log("admin123 is written in password field");
+        reporting.sendDateAndReportMessage("admin123 is written in password field");
         WebElement loginButton = driver.findElement(loginButtonBy);
         loginButton.click();
-        System.out.println("Login button clicked");
-        Reporter.log("Login button clicked");
-        WebElement errorMessage = driver.findElement(errorMessageEmptyInputBy);
-        errorMessage.isDisplayed();
-        System.out.println("Login denied ,Required error message is displayed");
-        Reporter.log("Login denied ,Required error message is displayed");
+        reporting.sendDateAndReportMessage("Login button clicked");
+        WebElement alertMessage = driver.findElement(errorMessageEmptyInputBy);
+        reporting.sendDateAndReportMessage("Login denied "+alertMessage.getText()+"is displayed");
     }
 
     public void loginWithEmptyUserInvalidPass() throws InterruptedException {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         WebElement UsernameInput = driver.findElement(usernameInputBy);
-        UsernameInput.sendKeys("");
-        System.out.println("username field left empty");
-        Reporter.log("username field left empty");
+        reporting = new Reporting();
+        reporting.sendDateAndReportMessage("username field left empty");
         WebElement PasswordInput = driver.findElement(passwordInputBy);
         PasswordInput.sendKeys("a");
-        System.out.println("a is written in password field");
-        Reporter.log("a is written in password field");
+        reporting.sendDateAndReportMessage("'a' is written in password field");
         WebElement loginButton = driver.findElement(loginButtonBy);
         loginButton.click();
-        System.out.println("Login button clicked");
-        Reporter.log("Login button clicked");
-        WebElement errorMessage = driver.findElement(errorMessageEmptyInputBy);
-        errorMessage.isDisplayed();
-        System.out.println("Login denied ,Required error message is displayed");
-        Reporter.log("Login denied ,Required error message is displayed");
+        reporting.sendDateAndReportMessage("Login button clicked");
+        WebElement alertMessage = driver.findElement(errorMessageEmptyInputBy);
+        alertMessage.isDisplayed();
+        reporting.sendDateAndReportMessage("Login denied "+alertMessage.getText()+"is displayed");
     }
 
     public void loginWithInvalidUserEmptyPass() throws InterruptedException {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         WebElement UsernameInput = driver.findElement(usernameInputBy);
+        reporting = new Reporting();
         UsernameInput.sendKeys("a");
-        System.out.println("a is written in username field");
-        Reporter.log("a is written in username field");
+        reporting.sendDateAndReportMessage("'a' is written in username field");
         WebElement PasswordInput = driver.findElement(passwordInputBy);
         PasswordInput.sendKeys("");
-        System.out.println("\"password field field left empty\"");
-        Reporter.log("password field field left empty");
+        reporting.sendDateAndReportMessage("password field field left empty");
         WebElement loginButton = driver.findElement(loginButtonBy);
         loginButton.click();
-        System.out.println("Login button clicked");
-        Reporter.log("Login button clicked");
-        WebElement errorMessage = driver.findElement(errorMessageEmptyInputBy);
-        errorMessage.isDisplayed();
-        System.out.println("Login denied ,Required error message is displayed");
-        Reporter.log("Login denied ,Required error message is displayed");
+        reporting.sendDateAndReportMessage("Login button clicked");
+        WebElement alertMessage = driver.findElement(errorMessageEmptyInputBy);
+        alertMessage.isDisplayed();
+        reporting.sendDateAndReportMessage("Login denied "+alertMessage.getText()+"is displayed");
     }
 
 
     public void loginWithEmptyUserEmptyPass() throws InterruptedException {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         WebElement UsernameInput = driver.findElement(usernameInputBy);
+        reporting = new Reporting();
         UsernameInput.sendKeys("");
-        System.out.println("username field left empty");
-        Reporter.log("username field left empty");
+        reporting.sendDateAndReportMessage("username field left empty");
         WebElement PasswordInput = driver.findElement(passwordInputBy);
         PasswordInput.sendKeys("");
-        System.out.println("password field field left empty");
-        Reporter.log("password field field left empty");
+        reporting.sendDateAndReportMessage("password field field left empty");
         WebElement loginButton = driver.findElement(loginButtonBy);
         loginButton.click();
-        System.out.println("Login button clicked");
-        Reporter.log("Login button clicked");
-        WebElement errorMessage = driver.findElement(errorMessageEmptyInputBy);
-        errorMessage.isDisplayed();
-        System.out.println("Login denied ,Required error message is displayed");
-        Reporter.log("Login denied ,Required error message is displayed");
+        reporting.sendDateAndReportMessage("Login button clicked");
+        WebElement alertMessage = driver.findElement(errorMessageEmptyInputBy);
+        alertMessage.isDisplayed();
+        reporting.sendDateAndReportMessage("Login denied "+alertMessage.getText()+"is displayed");
     }
-    //TC01
+
     public void loadLoginPage() {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         WebElement loginTitle = driver.findElement(loginTitleBy);
         Assert.assertTrue(loginTitle.isDisplayed());
-        System.out.println("Login Page loaded");
-        Reporter.log("Login Page loaded");
-
+        reporting = new Reporting();
+        reporting.sendDateAndReportMessage("Login Page loaded");
     }
+
     public void loginAddUser(String userName,String password) throws InterruptedException {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         WebElement UsernameInput = driver.findElement(usernameInputBy);
         UsernameInput.sendKeys(userName);
-        System.out.println(userName + "written in username field");
-        Reporter.log(userName + "written in username field");
+        reporting = new Reporting();
+        reporting.sendDateAndReportMessage(userName + "written in username field");
         WebElement PasswordInput = driver.findElement(passwordInputBy);
         PasswordInput.sendKeys(password);
-        System.out.println(password + "written in password field");
-        Reporter.log(password + "written in password field");
+        reporting.sendDateAndReportMessage(password + "written in password field");
         WebElement loginButton = driver.findElement(loginButtonBy);
         loginButton.click();
-        System.out.println("Login button clicked");
-        Reporter.log("Login button clicked");
-        WebElement accountDisabledError = driver.findElement(accountDisabledErrorBy);
-        accountDisabledError.isDisplayed();
-        System.out.println("Login denied, Account Disabled message visible");
-        Reporter.log("Login denied, Account Disabled message visible");
+        reporting.sendDateAndReportMessage("Login button clicked");
+        WebElement alertMessage = driver.findElement(accountDisabledErrorBy);
+        alertMessage.isDisplayed();
+        reporting.sendDateAndReportMessage("Login denied "+alertMessage.getText()+"is displayed");
 
     }
 

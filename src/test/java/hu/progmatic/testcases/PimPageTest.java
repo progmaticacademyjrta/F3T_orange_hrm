@@ -3,7 +3,6 @@ package hu.progmatic.testcases;
 import hu.progmatic.driverfactory.DriverBaseTest;
 import hu.progmatic.pages.LoginPage;
 import hu.progmatic.pages.PimPage;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class PimPageTest extends DriverBaseTest {
@@ -16,13 +15,13 @@ public class PimPageTest extends DriverBaseTest {
         loginpage.loginWithValidUserValidPass();
         pimpage.clickOnPIMButton();
         pimpage.clickOnAddButton();
-        pimpage.addNewEmployeeData(employeeId);
+        pimpage.addNewEmployeeData();
         pimpage.clickOnSaveButton();
         pimpage.clickOnEmployeeList();
-        pimpage.addEmployeeId(employeeId);
+        pimpage.addEmployeeId();
         pimpage.clickOnSearchButton();
         Thread.sleep(3000);
-        pimpage.checkExistenceOfNewEmployeeInSystem(employeeId);
+        pimpage.checkExistenceOfNewEmployeeInSystem();
         System.out.println("Test done!");
     }
 }

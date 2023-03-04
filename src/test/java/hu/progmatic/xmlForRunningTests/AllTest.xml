@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="AllTests">
     <test verbose="2" preserve-order="true"
-          name="C:/Users/Kastiel/Desktop/F3T_orange_hrm/src/test/java/hu/progmatic/testcases">
+          name="OrangeHRM-tests">
         <classes>
             <class name="hu.progmatic.testcases.AdminPageTest">
                 <methods>

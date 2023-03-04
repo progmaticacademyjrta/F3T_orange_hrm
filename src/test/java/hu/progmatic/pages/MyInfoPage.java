@@ -1,6 +1,7 @@
 package hu.progmatic.pages;
 
 
+import hu.progmatic.report.Reporting;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -18,6 +19,7 @@ public class MyInfoPage{
 
     WebDriver driver;
     WebDriverWait wait;
+    Reporting reporting;
 
     By myInfoButtonBy = By.xpath("//span[text()='My Info']");
     By personalDetailsTitleBy = By.xpath("//h6[text()='Personal Details']");
@@ -40,12 +42,11 @@ public class MyInfoPage{
     public void navigateToMyInfoPage(){
         WebElement myInfoButton = driver.findElement(myInfoButtonBy);
         myInfoButton.click();
-        System.out.println("My Info Page button clicked");
-        Reporter.log("My Info Page button clicked");
+        reporting = new Reporting();
+        reporting.sendDateAndReportMessage("My Info Page button clicked");
         WebElement personalDetailsTitle = driver.findElement(personalDetailsTitleBy);
         personalDetailsTitle.isDisplayed();
-        System.out.println("Navigated to My Info Page");
-        Reporter.log("Navigated to My Info Page");
+        reporting.sendDateAndReportMessage("Navigated to My Info Page");
     }
 
     public void checkRequirementOfFirstName() throws InterruptedException {
@@ -53,12 +54,11 @@ public class MyInfoPage{
         Thread.sleep(1000);
         firstNameField.sendKeys(Keys.CONTROL,"a");
         firstNameField.sendKeys(Keys.DELETE);
-        System.out.println("Firstname field cleared");
-        Reporter.log("Firstname field cleared");
+        reporting = new Reporting();
+        reporting.sendDateAndReportMessage("Firstname field cleared");
         WebElement requiredMessage = driver.findElement(requiredMessageBy);
         requiredMessage.isDisplayed();
-        System.out.println("Required message visible");
-        Reporter.log("Required message visible");
+        reporting.sendDateAndReportMessage("Required message visible");
     }
 
     public void checkRequirementOfLastName() throws InterruptedException {
@@ -66,12 +66,11 @@ public class MyInfoPage{
         Thread.sleep(1000);
         lastNameField.sendKeys(Keys.CONTROL,"a");
         lastNameField.sendKeys(Keys.DELETE);
-        System.out.println("Lastname field cleared");
-        Reporter.log("Lastname field cleared");
+        reporting = new Reporting();
+        reporting.sendDateAndReportMessage("Lastname field cleared");
         WebElement requiredMessage = driver.findElement(requiredMessageBy);
         requiredMessage.isDisplayed();
-        System.out.println("Required message visible");
-        Reporter.log("Required message visible");
+        reporting.sendDateAndReportMessage("Required message visible");
     }
 
     public void checkIfFullNameHasBeenSaved() throws InterruptedException {
@@ -79,64 +78,54 @@ public class MyInfoPage{
         Thread.sleep(1000);
         firstNameField.sendKeys(Keys.CONTROL,"a");
         firstNameField.sendKeys(Keys.DELETE);
-        System.out.println("Firstname field cleared");
-        Reporter.log("Firstname field cleared");
+        reporting = new Reporting();
+        reporting.sendDateAndReportMessage("Firstname field cleared");
         firstNameField.sendKeys("John");
-        System.out.println("John is written in Firstname field");
-        Reporter.log("John is written in Firstname field");
+        reporting.sendDateAndReportMessage("John is written in Firstname field");
         WebElement lastNameField = driver.findElement(lastNameFieldBy);
         lastNameField.sendKeys(Keys.CONTROL,"a");
         lastNameField.sendKeys(Keys.DELETE);
-        System.out.println("Lastname field cleared");
-        Reporter.log("Lastname field cleared");
+        reporting.sendDateAndReportMessage("Lastname field cleared");
         lastNameField.sendKeys("Martin");
-        System.out.println("Martin is written in Lastname field");
-        Reporter.log("Martin is written in Lastname field");
+        reporting.sendDateAndReportMessage("Martin is written in Lastname field");
         WebElement saveButton = driver.findElement(saveButtonBy);
         saveButton.click();
-        System.out.println("Save button clicked");
-        Reporter.log("Save button clicked");
+        reporting.sendDateAndReportMessage("Save button clicked");
         WebElement myInfoButton = driver.findElement(myInfoButtonBy);
         myInfoButton.click();
-        System.out.println("My Info button clicked");
-        Reporter.log("My Info button clicked");
+        reporting.sendDateAndReportMessage("My Info button clicked");
         WebElement name = driver.findElement(nameBy);
         name.isDisplayed();
-        System.out.println("John Martin has been saved");
-        Reporter.log("John Martin has been saved");
-
+        reporting.sendDateAndReportMessage("John Martin has been saved");
     }
 
     public void navigateFromMyInfoToChangeProfilePicturePage(){
         WebElement employeePhoto = driver.findElement(employeePhotoBy);
         employeePhoto.click();
-        System.out.println("Employee photo clicked");
-        Reporter.log("Employee photo clicked");
+        reporting = new Reporting();
+        reporting.sendDateAndReportMessage("Employee photo clicked");
         WebElement changePhotoTitle = driver.findElement(changePhotoTitleBy);
         changePhotoTitle.isDisplayed();
-        System.out.println("Navigated to change photo page");
-        Reporter.log("Navigated to change photo page");
+        reporting.sendDateAndReportMessage("Navigated to change photo page");
     }
 
     public void licenseExpiryDateFieldCheck() throws InterruptedException {
         WebElement licenseExpiryDateInputField = driver.findElement(licenseExpiryDateInputFieldBy);
         Thread.sleep(1000);
         licenseExpiryDateInputField.sendKeys(Keys.NUMPAD1, Keys.TAB);
-        System.out.println("1 is written in License Expiry Date Field");
-        Reporter.log("1 is written in License Expiry Date Field");
+        reporting = new Reporting();
+        reporting.sendDateAndReportMessage("1 is written in License Expiry Date Field");
         WebElement errorMessage = driver.findElement(errorMessageBy);
         errorMessage.isDisplayed();
-        System.out.println("Should be a valid date in yyyy-mm-dd format message is seen");
-        Reporter.log("Should be a valid date in yyyy-mm-dd format message is seen");
+        reporting.sendDateAndReportMessage("Should be a valid date in yyyy-mm-dd format message is seen");
     }
 
     public void chosenNationalityCheck(){
         WebElement nationalityDropDown = driver.findElement(nationalityDropDownBy);
         nationalityDropDown.sendKeys(Keys.DOWN,Keys.DOWN,Keys.ENTER);
-        System.out.println("Albanian Nationality is chosen");
-        Reporter.log("Albanian Nationality is chosen");
+        reporting = new Reporting();
+        reporting.sendDateAndReportMessage("Albanian Nationality is chosen");
         Assert.assertEquals(nationalityDropDown.getText(),"Albanian");
-        System.out.println("Albanian Nationality is visible after choosing it");
-        Reporter.log("Albanian Nationality is visible after choosing it");
+        reporting.sendDateAndReportMessage("Albanian Nationality is visible after choosing it");
     }
 }

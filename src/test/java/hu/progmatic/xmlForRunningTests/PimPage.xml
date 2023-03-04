@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="PimPageE2ETest">
     <test verbose="2" preserve-order="true"
-          name="C:/Users/Kastiel/Desktop/F3T_orange_hrm/src/test/java/hu/progmatic/testcases/PimPageTest.java">
+          name="PimPageE2ETest">
         <classes>
             <class name="hu.progmatic.testcases.PimPageTest">
                 <methods>
